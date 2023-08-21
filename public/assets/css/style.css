@@ -1016,8 +1016,9 @@ section {
 # Breadcrumbs
 --------------------------------------------------------------*/
 .breadcrumbs {
-  padding: 20px 0;
+  padding: 7px 0;
   background: #f9f9f9;
+  margin-bottom: -40px;
 }
 
 .breadcrumbs h2 {

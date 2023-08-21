@@ -40,9 +40,9 @@
 
 <body>
 
-@section('head-navbar')
+@section('navbar')
 
-    @include('templates.head-navbar')
+    @include('templates.navbar')
 
 @show
 

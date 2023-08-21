@@ -18,15 +18,26 @@
             <div class="d-flex justify-content-center my-1">
               <img src="https://www.shareicon.net/data/128x128/2016/07/11/794381_people_512x512.png" class="bd-placeholder-img rounded-circle" width="90" height="90" preserveAspectRatio="xMidYMid slice" focusable="false">
             </div>
-            <form>
+            <form action="{{ route('login') }}" method="POST">
+              @csrf
               <div class="form-group">
-                <label for="name">Usuario</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
+                <label for="email">Email</label>
+                <input type="email" class="form-control" value="{{ old('email') }}" name="email" id="email">
               </div>
+              @error('email')
+              <div class="alert alert-info" role="alert">
+                {{ $message }}
+              </div>
+              @enderror
               <div class="form-group">
-                <label for="name">Contraseña</label>
-                <input type="password" class="form-control" name="subject" id="subject" required>
+                <label for="password">Contraseña</label>
+                <input type="password" class="form-control" value="{{ old('password') }}" name="password" id="password">
               </div>
+              @error('password')
+              <div class="alert alert-info" role="alert">
+                {{ $message }}
+              </div>
+              @enderror
               <div class="d-flex justify-content-center mt-3">
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">

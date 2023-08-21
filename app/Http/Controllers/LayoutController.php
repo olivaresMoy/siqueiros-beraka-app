@@ -11,4 +11,8 @@ class LayoutController extends Controller
     {
         return view('login');
     }
+    public function inicio()
+    {
+        return view('welcome');
+    }
 }
