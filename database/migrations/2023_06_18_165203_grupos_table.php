@@ -14,14 +14,12 @@ return new class extends Migration
         // Grupos
         Schema::create('grupos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
-            ->constrained(table: 'users', indexName: 'grupos_user_id')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
-            $table->foreignId('institucion_id')
-            ->constrained(table: 'instituciones', indexName: 'grupos_institucion_id')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+
+            $table->unsignedBigInteger('nivele_id');
+            $table->foreign('nivele_id')
+                ->references('id')
+                ->on('niveles');
+
             $table->string('grado', 2);
             $table->string('grupo', 1);
             $table->timestamps();

@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Tareas
         Schema::create('tareas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
-            ->constrained(table: 'users', indexName: 'tareas_user_id')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
-            $table->string('tarea', 20);
-            $table->mediumText('indicaciones');
-            $table->date('fecha_entrega');
+
+            $table->unsignedBigInteger('asignatura_id');
+            $table->foreign('asignatura_id')
+                ->references('id')
+                ->on('asignaturas');
+
+            $table->longText('descripcion');
             $table->boolean('enterado');
+            $table->date('entrega');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('tareas');
     }
 };

@@ -11,23 +11,27 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Asistencias
-        Schema::create('asistencias', function (Blueprint $table) {
+        // Perfiles
+        Schema::create('perfiles', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('role_id');
+            $table->foreign('role_id')
+                ->references('id')
+                ->on('roles');
+
+            $table->unsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->unsignedBigInteger('asignatura_id');
-            $table->foreign('asignatura_id')
-                ->references('id')
-                ->on('asignaturas');
-
-            $table->string('estatus', 20);
+            $table->string('nombre', 80);
+            $table->string('apaterno', 80);
+            $table->string('amaterno', 80);
+            $table->string('celular', 10)->nullable;
+            $table->string('sexo', 1);
             $table->timestamps();
         });
     }
@@ -37,6 +41,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('perfiles');
     }
 };

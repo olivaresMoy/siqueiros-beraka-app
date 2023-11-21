@@ -44,4 +44,22 @@ class User extends Authenticatable
     public function perfile(){
         return $this->hasOne('App\Models\Perfile');
     }
+    public function tutore(){
+        return $this->hasOne('App\Models\Tutore');
+    }
+    public function alumno(){
+        return $this->hasOne('App\Models\Alumno');
+    }
+    public function docente(){
+        return $this->hasOne('App\Models\Docente');
+    }
+    public function asistencias(){
+        return $this->hasMany('App\Models\Asistencia');
+    }
+    public function calificaciones(){
+        return $this->hasMany('App\Models\Calificacione');
+    }
+    public function reportes(){
+        return $this->hasMany('App\Models\Reporte');
+    }
 }

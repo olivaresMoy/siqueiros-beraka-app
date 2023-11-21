@@ -31,7 +31,8 @@
         </li>
         <li><a href="#collapseItems3" class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseItems3" role="button" aria-expanded="false" aria-controls="collapseItems"><i class="bx bx-archive"></i> <span>Configurar</span></a>
             <ul class="collapse" id="collapseItems3">
-                <li class="ms-4"><a href="#" class="nav-link"><i class="bx bxs-institution"></i> <span>Institución</span></a></li>
+                <li class="ms-4"><a href="{{ route('instituto') }}" class="nav-link"><i class="bx bxs-institution"></i> <span>Institución</span></a></li>
+                <li class="ms-4"><a href="#" class="nav-link"><i class="bx bx-layer"></i> <span>Niveles</span></a></li>
                 <li class="ms-4"><a href="#" class="nav-link"><i class="bx bx-group"></i> <span>Grupos</span></a></li>
                 <li class="ms-4"><a href="#" class="nav-link"><i class="bx bx-news"></i> <span>Asignaturas</span></a></li>
             </ul>

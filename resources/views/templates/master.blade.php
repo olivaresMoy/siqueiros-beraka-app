@@ -39,6 +39,9 @@
 </head>
 
 <body>
+  <script>
+    import Swal from 'sweetalert2';
+  </script>
 
 @section('navbar')
 
@@ -69,6 +72,7 @@
   <script src="{{ asset('/assets') }}/vendor/typed.js/typed.min.js"></script>
   <script src="{{ asset('/assets') }}/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="{{ asset('/assets') }}/vendor/php-email-form/validate.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <!-- Template Main JS File -->
   <script src="{{ asset('/assets') }}/js/main.js"></script>

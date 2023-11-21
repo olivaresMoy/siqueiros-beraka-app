@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Notificaciones extends Model
+class Institucione extends Model
 {
     use HasFactory;
+
+    public function niveles(){
+        return $this->hasMany('App\Models\Nivele');
+    }
 }

@@ -11,21 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Asignaturas
-        Schema::create('asignaturas', function (Blueprint $table) {
+        Schema::create('notificaciones', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('grupo_id');
-            $table->foreign('grupo_id')
+            $table->unsignedBigInteger('role_id');
+            $table->foreign('role_id')
                 ->references('id')
-                ->on('grupos');
+                ->on('roles');
 
-            $table->unsignedBigInteger('docente_id');
-            $table->foreign('docente_id')
-                ->references('id')
-                ->on('docentes');
-
-            $table->string('name', 100);
+            $table->string('titulo', 60);
+            $table->longText('descripcion');
             $table->timestamps();
         });
     }
@@ -35,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('notificaciones');
     }
 };

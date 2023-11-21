@@ -16,3 +16,4 @@ use App\Http\Controllers\LayoutController;
 
 Route::get('/login',[LayoutController::class,'login'])->name('login');
 Route::get('/inicio',[LayoutController::class,'inicio'])->name('inicio')->middleware('auth');
+Route::get('configuraciones/instituto',[LayoutController::class,'instituto'])->name('instituto')->middleware('auth');

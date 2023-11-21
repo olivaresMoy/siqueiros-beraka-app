@@ -11,19 +11,27 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Reportes
         Schema::create('reportes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
-            ->constrained(table: 'users', indexName: 'reportes_user_id')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->unsignedBigInteger('asignatura_id');
+            $table->foreign('asignatura_id')
+                ->references('id')
+                ->on('asignaturas');
+            
             $table->boolean('cumplio_temario');
             $table->boolean('cumplio_tareas');
             $table->boolean('cumplio_conducta');
             $table->boolean('cumplio_higiene');
-            $table->boolean('trae_utiles');
-            $table->boolean('tiene_apuntes');
+            $table->boolean('cumplio_utiles');
+            $table->boolean('cumplio_apuntes');
             $table->mediumText('observaciones');
             $table->boolean('enterado');
             $table->timestamps();
@@ -35,6 +43,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('reportes');
     }
 };

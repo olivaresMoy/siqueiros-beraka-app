@@ -11,10 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notificaciones', function (Blueprint $table) {
+        Schema::create('niveles', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo', 60);
-            $table->longText('descripcion');
+
+            $table->unsignedBigInteger('institucione_id');
+            $table->foreign('institucione_id')
+                ->references('id')
+                ->on('instituciones');
+
+            $table->string('name', 20);
             $table->timestamps();
         });
     }
@@ -24,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notificaciones');
+        Schema::dropIfExists('niveles');
     }
 };

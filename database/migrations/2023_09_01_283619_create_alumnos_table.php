@@ -11,14 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Perfiles
-        Schema::create('perfiles', function (Blueprint $table) {
+        Schema::create('alumnos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 80);
-            $table->string('apaterno', 80);
-            $table->string('amaterno', 80);
-            $table->string('celular', 10)->nullable;
-            $table->string('sexo', 1);
 
             $table->unsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')
@@ -26,7 +20,20 @@ return new class extends Migration
                 ->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-                
+
+            $table->unsignedBigInteger('grupo_id');
+            $table->foreign('grupo_id')
+                ->references('id')
+                ->on('grupos');
+
+            $table->unsignedBigInteger('tutore_id');
+            $table->foreign('tutore_id')
+                ->references('id')
+                ->on('tutores')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+    
+
             $table->timestamps();
         });
     }
@@ -36,6 +43,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('alumnos');
     }
 };

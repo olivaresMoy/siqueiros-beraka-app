@@ -14,17 +14,23 @@ return new class extends Migration
         // Calificaciones
         Schema::create('calificaciones', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('asignatura_id')
-            ->constrained(table: 'asignaturas', indexName: 'calificaciones_grupo_id')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
-            $table->string('id_alumno', 20);
-            $table->string('id_asignatura', 20);
-            $table->string('id_docente', 20);
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->unsignedBigInteger('asignatura_id');
+            $table->foreign('asignatura_id')
+                ->references('id')
+                ->on('asignaturas');
+
             $table->float('calificacion', 10, 2);
             $table->tinyInteger('bloque');
             $table->string('observaciones', 255);
-            $table->string('enterado', 2);
+            $table->tinyInteger('enterado');
             $table->timestamps();
         });
     }
