@@ -37,5 +37,13 @@ class UserSeeder extends Seeder
         $usuario3->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'; // password
         //$usuario3->remember_token = Str::random(10);
         $usuario3->save();
+
+        $usuario4 = new User();
+        $usuario4->name = 'Usuario4';
+        $usuario4->email = 'user4@prueba.com';
+        $usuario4->email_verified_at = now();
+        $usuario4->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'; // password
+        //$usuario4->remember_token = Str::random(10);
+        $usuario4->save();
     }
 }

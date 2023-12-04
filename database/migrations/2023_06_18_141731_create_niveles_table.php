@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('niveles', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('institucione_id');
+            $table->unsignedBigInteger('institucione_id')->nullable();
             $table->foreign('institucione_id')
                 ->references('id')
-                ->on('instituciones');
+                ->on('instituciones')
+                ->onDelete('set null');
 
-            $table->string('name', 20);
+            $table->string('nombre', 20);
             $table->timestamps();
         });
     }

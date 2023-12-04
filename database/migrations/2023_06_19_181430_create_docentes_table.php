@@ -24,7 +24,8 @@ return new class extends Migration
             $table->unsignedBigInteger('grupo_id')->nullable();
             $table->foreign('grupo_id')
                 ->references('id')
-                ->on('grupos');
+                ->on('grupos')
+                ->onDelete('set null');
                 
             $table->timestamps();
         });

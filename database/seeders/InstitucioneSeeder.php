@@ -15,7 +15,6 @@ class InstitucioneSeeder extends Seeder
     {
         // Institución
         $instituto = new Institucione();
-        $instituto->logotipo = 'imagen.png';
         $instituto->nombre = 'David Alfaro Siqueiros';
         $instituto->cct = 'LAJ25458001';
         $instituto->zona = '05';

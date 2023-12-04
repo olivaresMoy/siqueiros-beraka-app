@@ -15,7 +15,7 @@ class DocenteSeeder extends Seeder
     {
         // Docente
         $docente = new Docente();
-        $docente->user_id = '1';
+        $docente->user_id = '4';
         $docente->grupo_id = '1';
         $docente->save();
     }

@@ -15,10 +15,11 @@ return new class extends Migration
         Schema::create('grupos', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('nivele_id');
+            $table->unsignedBigInteger('nivele_id')->nullable();
             $table->foreign('nivele_id')
                 ->references('id')
-                ->on('niveles');
+                ->on('niveles')
+                ->onDelete('set null');
 
             $table->string('grado', 2);
             $table->string('grupo', 1);

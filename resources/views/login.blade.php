@@ -1,5 +1,5 @@
 @extends('templates.master')
-@section('titulo','Entrar')
+@section('titulo','Acceso')
 @section('assets-links')
 @section('container')
 	@parent
@@ -7,7 +7,7 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex flex-row justify-content-end align-items-center">
     <div class="hero-container me-4" data-aos="fade-in">
-        <h1>Administra</h1>
+        <h1>Gestiona</h1>
         <p><span class="typed" data-typed-items="Asistencias., Calificaciones., Reportes., Tareas., Notificaciones."></span></p>
     </div>
 

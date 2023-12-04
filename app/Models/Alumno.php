@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Alumno extends Model
 {
+    protected $fillable = ['user_id','grupo_id','tutore_id'];
+
     use HasFactory;
 
     public function user(){

@@ -9,6 +9,8 @@ class Institucione extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nombre','cct','zona','telefono','direccion','director','ciclo'];
+
     public function niveles(){
         return $this->hasMany('App\Models\Nivele');
     }

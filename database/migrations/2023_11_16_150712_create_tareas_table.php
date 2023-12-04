@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('tareas', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('asignatura_id');
+            $table->unsignedBigInteger('asignatura_id')->nullable();
             $table->foreign('asignatura_id')
                 ->references('id')
-                ->on('asignaturas');
+                ->on('asignaturas')
+                ->onDelete('set null');
 
             $table->longText('descripcion');
             $table->boolean('enterado');

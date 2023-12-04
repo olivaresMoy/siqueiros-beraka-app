@@ -20,6 +20,19 @@
     @auth
     <nav id="navbar" class="nav-menu navbar">
     <ul>
+        <li><a href="#collapseItems" class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseItems" role="button" aria-expanded="false" aria-controls="collapseItems"><i class="bx bx-user-circle"></i> <span>Usuarios</span></a>
+            <ul class="collapse" id="collapseItems">
+                <li class="ms-4"><a href="{{ route('cuentas') }}" class="nav-link"><i class="bx bx-group"></i> <span>Cuentas</span></a></li>
+            </ul>
+        </li>
+        <li><a href="#collapseItems3" class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseItems3" role="button" aria-expanded="false" aria-controls="collapseItems"><i class="bx bx-cog"></i> <span>Configurar</span></a>
+            <ul class="collapse" id="collapseItems3">
+                <li class="ms-4"><a href="{{ route('instituto') }}" class="nav-link"><i class="bx bxs-institution"></i> <span>Institución</span></a></li>
+                <li class="ms-4"><a href="{{ route('niveles') }}" class="nav-link"><i class="bx bx-layer"></i> <span>Niveles</span></a></li>
+                <li class="ms-4"><a href="{{ route('grupos') }}" class="nav-link"><i class="bx bx-group"></i> <span>Grupos</span></a></li>
+                <li class="ms-4"><a href="{{ route('asignaturas') }}" class="nav-link"><i class="bx bx-news"></i> <span>Asignaturas</span></a></li>
+            </ul>
+        </li>
         <li><a href="#collapseItems2" class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseItems2" role="button" aria-expanded="false" aria-controls="collapseItems"><i class="bx bx-carousel"></i> <span>Data App</span></a>
             <ul class="collapse" id="collapseItems2">
                 <li class="ms-4"><a href="#" class="nav-link"><i class="bx bx-user"></i> <span>Asistencias</span></a></li>
@@ -27,22 +40,6 @@
                 <li class="ms-4"><a href="#" class="nav-link"><i class="bx bx-book-content"></i> <span>Reportes</span></a></li>
                 <li class="ms-4"><a href="#" class="nav-link"><i class="bx bx-server"></i> <span>Tareas</span></a></li>
                 <li class="ms-4"><a href="#" class="nav-link"><i class="bx bx-message"></i> <span>Notificaciones</span></a></li>
-            </ul>
-        </li>
-        <li><a href="#collapseItems3" class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseItems3" role="button" aria-expanded="false" aria-controls="collapseItems"><i class="bx bx-archive"></i> <span>Configurar</span></a>
-            <ul class="collapse" id="collapseItems3">
-                <li class="ms-4"><a href="{{ route('instituto') }}" class="nav-link"><i class="bx bxs-institution"></i> <span>Institución</span></a></li>
-                <li class="ms-4"><a href="#" class="nav-link"><i class="bx bx-layer"></i> <span>Niveles</span></a></li>
-                <li class="ms-4"><a href="#" class="nav-link"><i class="bx bx-group"></i> <span>Grupos</span></a></li>
-                <li class="ms-4"><a href="#" class="nav-link"><i class="bx bx-news"></i> <span>Asignaturas</span></a></li>
-            </ul>
-        </li>
-        <li><a href="#collapseItems" class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseItems" role="button" aria-expanded="false" aria-controls="collapseItems"><i class="bx bx-group"></i> <span>Usuarios</span></a>
-            <ul class="collapse" id="collapseItems">
-                <li class="ms-4"><a href="#" class="nav-link"><i class="bx bx-user-pin"></i> <span>Administradores</span></a></li>
-                <li class="ms-4"><a href="#" class="nav-link"><i class="bx bx-user-circle"></i> <span>Tutores</span></a></li>
-                <li class="ms-4"><a href="#" class="nav-link"><i class='bx bxs-graduation'></i> <span>Alumnos</span></a></li>
-                <li class="ms-4"><a href="#" class="nav-link"><i class='bx bx-book-bookmark'></i> <span>Docentes</span></a></li>
             </ul>
         </li>
         <li><a href="#" onClick="javascript: document.logout.submit();" class="nav-link scrollto"><i class="bx bx-power-off"></i> <span>Salir</span></a></li>

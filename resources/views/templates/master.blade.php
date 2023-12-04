@@ -17,6 +17,13 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Datatables -->
+    <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.8/b-2.4.2/b-print-2.4.2/r-2.5.0/sc-2.3.0/datatables.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.8/b-2.4.2/b-print-2.4.2/r-2.5.0/sc-2.3.0/datatables.min.js"></script>
+
     <!-- Vendor CSS Files -->
     <link href="{{ asset('/assets') }}/vendor/aos/aos.css" rel="stylesheet">
     <link href="{{ asset('/assets') }}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -39,9 +46,6 @@
 </head>
 
 <body>
-  <script>
-    import Swal from 'sweetalert2';
-  </script>
 
 @section('navbar')
 
@@ -72,12 +76,38 @@
   <script src="{{ asset('/assets') }}/vendor/typed.js/typed.min.js"></script>
   <script src="{{ asset('/assets') }}/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="{{ asset('/assets') }}/vendor/php-email-form/validate.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <!-- Template Main JS File -->
   <script src="{{ asset('/assets') }}/js/main.js"></script>
 @show
 
 </body>
-
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable({
+      
+      "language": {
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+        "infoEmpty": "Mostrando _PAGE_ a _PAGE_ de _PAGES_",
+        "infoFiltered": "(Filtrado de _MAX_ en total)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Resultados",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Último",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+      },
+      "responsive": true, "lengthChange": true, "autoWidth": false,
+    });
+  });
+</script>
+@include('modales')
 </html>

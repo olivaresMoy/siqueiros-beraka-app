@@ -9,6 +9,8 @@ class Nivele extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nombre','institucione_id'];
+    
     public function grupos(){
         return $this->hasMany('App\Models\Grupo');
     }

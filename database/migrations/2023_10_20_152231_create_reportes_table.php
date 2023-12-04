@@ -21,10 +21,11 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->unsignedBigInteger('asignatura_id');
+            $table->unsignedBigInteger('asignatura_id')->nullable();
             $table->foreign('asignatura_id')
                 ->references('id')
-                ->on('asignaturas');
+                ->on('asignaturas')
+                ->onDelete('set null');
             
             $table->boolean('cumplio_temario');
             $table->boolean('cumplio_tareas');

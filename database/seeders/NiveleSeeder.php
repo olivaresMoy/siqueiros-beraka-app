@@ -16,22 +16,22 @@ class NiveleSeeder extends Seeder
         // Nivel
         $nivel1 = new Nivele();
         $nivel1->institucione_id = '1';
-        $nivel1->name = 'Preescolar';
+        $nivel1->nombre = 'Preescolar';
         $nivel1->save();
 
         $nivel2 = new Nivele();
         $nivel2->institucione_id = '1';
-        $nivel2->name = 'Primaria';
+        $nivel2->nombre = 'Primaria';
         $nivel2->save();
 
         $nivel3 = new Nivele();
         $nivel3->institucione_id = '1';
-        $nivel3->name = 'Secundaria';
+        $nivel3->nombre = 'Secundaria';
         $nivel3->save();
 
         $nivel4 = new Nivele();
         $nivel4->institucione_id = '1';
-        $nivel4->name = 'Bachillerato';
+        $nivel4->nombre = 'Bachillerato';
         $nivel4->save();
     }
 }

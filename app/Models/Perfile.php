@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Perfile extends Model
 {
+    protected $fillable = ['nombre','apaterno','amaterno','celular','sexo','role_id','user_id'];
+
     use HasFactory;
     
     public function user(){

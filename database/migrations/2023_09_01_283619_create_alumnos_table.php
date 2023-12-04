@@ -21,10 +21,11 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->unsignedBigInteger('grupo_id');
+            $table->unsignedBigInteger('grupo_id')->nullable();
             $table->foreign('grupo_id')
                 ->references('id')
-                ->on('grupos');
+                ->on('grupos')
+                ->onDelete('set null');
 
             $table->unsignedBigInteger('tutore_id');
             $table->foreign('tutore_id')

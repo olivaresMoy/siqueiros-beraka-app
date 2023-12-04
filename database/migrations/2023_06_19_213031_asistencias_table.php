@@ -22,10 +22,11 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->unsignedBigInteger('asignatura_id');
+            $table->unsignedBigInteger('asignatura_id')->nullable();
             $table->foreign('asignatura_id')
                 ->references('id')
-                ->on('asignaturas');
+                ->on('asignaturas')
+                ->onDelete('set null');
 
             $table->string('estatus', 20);
             $table->timestamps();

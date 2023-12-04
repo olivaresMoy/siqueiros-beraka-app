@@ -15,17 +15,13 @@ return new class extends Migration
         Schema::create('asignaturas', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('grupo_id');
-            $table->foreign('grupo_id')
-                ->references('id')
-                ->on('grupos');
-
-            $table->unsignedBigInteger('docente_id');
+            $table->unsignedBigInteger('docente_id')->nullable();
             $table->foreign('docente_id')
                 ->references('id')
-                ->on('docentes');
+                ->on('docentes')
+                ->onDelete('set null');
 
-            $table->string('name', 100);
+            $table->string('nombre', 100);
             $table->timestamps();
         });
     }

@@ -1,5 +1,5 @@
 @extends('templates.master')
-@section('titulo','Entrar')
+@section('titulo','Bienvenidos')
 @section('assets-links')
 @section('container')
 	@parent
@@ -19,9 +19,8 @@
                 <img src="{{ asset('/') }}assets/img/apps.jpg" class="card-img-top img-fluid" alt="..." style="height: 250px; object-fit: cover;">
                   <h3 class="card-title mt-4">Bienvenidos</h3>
                   <h6 class="card-subtitle mb-2 text-muted">Panel de Control</h6>
-                  <p class="card-text">Aquí encontrarás recursos para la administración de la App Siqueiros-Beraka disponible<br>para los sistemas Android e iOS que podrás descargar en los vínculos que se muestran abajo.</p>
-                  <a href="#" class="card-link">Android</a>
-                  <a href="#" class="card-link">iOS</a>
+                  <p class="card-text">Aquí podrás administrar las interfaces de<br>información y cuentas de usuarios para la App SiqueirosBeraka.</p>
+                  <a href="#" class="card-link">Android</a>&nbsp;&nbsp;&nbsp;&nbsp;|<a href="#" class="card-link">iOS</a>
                 </div>
               </div>
             </div>

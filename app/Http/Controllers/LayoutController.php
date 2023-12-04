@@ -15,8 +15,4 @@ class LayoutController extends Controller
     {
         return view('welcome');
     }
-    public function instituto()
-    {
-        return view('configuraciones/instituto');
-    }
 }

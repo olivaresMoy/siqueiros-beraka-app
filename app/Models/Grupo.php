@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Grupo extends Model
 {
+
+    protected $fillable = ['grado','grupo','nivele_id'];
+
     use HasFactory;
     
     public function alumnos(){
