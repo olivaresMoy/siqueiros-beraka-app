@@ -14,10 +14,6 @@ class NotificacioneSeeder extends Seeder
     public function run(): void
     {
         // Notificaciones
-        $notificacion1 = new Notificacione();
-        $notificacion1->role_id = '2';
-        $notificacion1->titulo = 'Nueva noticia';
-        $notificacion1->descripcion = 'Este es el cuerpo de la noticia del mensaje actual.';
-        $notificacion1->save();
+        Notificacione::factory()->count(20)->create();
     }
 }

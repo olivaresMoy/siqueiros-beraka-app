@@ -47,7 +47,7 @@
                 </div>
               </div>
               <div class="d-flex justify-content-center mb-3">
-                  <label for="name">Recupera tu contraseña</label>
+                  <label for="name"><a href="{{ route('password.request') }}">Recupera tu contraseña</a></label>
               </div>
               <div class="d-grid gap-2">
                 <button class="btn btn-dark" type="submit">Entrar</button>

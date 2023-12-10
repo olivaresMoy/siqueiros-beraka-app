@@ -19,7 +19,10 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Agregado para la vista recuperar password fortify
+        Fortify::requestPasswordResetLinkView(function($request){
+            return view(view:'forgot-password');
+        });
     }
 
     /**

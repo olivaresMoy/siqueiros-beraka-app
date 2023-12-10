@@ -7,6 +7,7 @@ use App\Http\Controllers\NiveleController;
 use App\Http\Controllers\GrupoController;
 use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DataAppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +47,9 @@ Route::get('usuarios/cuentas',[UserController::class,'index'])->name('cuentas')-
 Route::post('usuario-save',[UserController::class,'store'])->name('usuario-save')->middleware('auth');
 Route::patch('usuario-update',[UserController::class,'update'])->name('usuario-update')->middleware('auth');
 Route::get('usuario-delete/{id}',[UserController::class,'destroy'])->name('usuario-delete')->middleware('auth');
+/* Rutas para listar la Data App */
+Route::get('resources/notificaciones',[DataAppController::class,'indexNotificaciones'])->name('notificaciones')->middleware('auth');
+Route::get('resources/tareas',[DataAppController::class,'indexTareas'])->name('tareas')->middleware('auth');
+Route::get('resources/asistencias',[DataAppController::class,'indexAsistencias'])->name('asistencias')->middleware('auth');
+Route::get('resources/reportes',[DataAppController::class,'indexReportes'])->name('reportes')->middleware('auth');
+Route::get('resources/calificaciones',[DataAppController::class,'indexCalificaciones'])->name('calificaciones')->middleware('auth');

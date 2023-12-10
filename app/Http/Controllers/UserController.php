@@ -12,6 +12,8 @@ use App\Models\Tutore;
 use App\Models\Alumno;
 use App\Models\Role;
 use App\Models\Grupo;
+use App\Mail\CuentaMail;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -56,7 +58,7 @@ class UserController extends Controller
             'name' => $request->input("name"),
             'email' => $request->input("email"),
             'email_verified_at' => now(),
-            'password' => Str::password(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
         );
         $idUser = User::create($varsUser)->id;
         $rol = Role::findOrFail($request->input("role_id"));
@@ -94,7 +96,9 @@ class UserController extends Controller
             );
             Docente::create($varsDocente);
         }
-
+        $pass = User::findOrFail($idUser)->select('password');
+        
+        Mail::to(config('mail.from.address'))->queue(new CuentaMail($varsUser));
         return redirect()->route('cuentas');
     }
 
