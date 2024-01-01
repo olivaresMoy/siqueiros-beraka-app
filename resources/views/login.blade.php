@@ -38,15 +38,7 @@
                 {{ $message }}
               </div>
               @enderror
-              <div class="d-flex justify-content-center mt-3">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Recordarme
-                  </label>
-                </div>
-              </div>
-              <div class="d-flex justify-content-center mb-3">
+              <div class="d-flex justify-content-center my-3">
                   <label for="name"><a href="{{ route('password.request') }}">Recupera tu contraseña</a></label>
               </div>
               <div class="d-grid gap-2">

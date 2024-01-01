@@ -98,7 +98,7 @@ class UserController extends Controller
         }
         $pass = User::findOrFail($idUser)->select('password');
         
-        Mail::to(config('mail.from.address'))->queue(new CuentaMail($varsUser));
+        Mail::to($request->input('email'))->queue(new CuentaMail($varsUser));
         return redirect()->route('cuentas');
     }
 

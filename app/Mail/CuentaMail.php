@@ -13,7 +13,6 @@ class CuentaMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = "Acceso a tu cuenta";
     public $msg;
     /**
      * Create a new message instance.
@@ -30,7 +29,7 @@ class CuentaMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Cuenta Mail',
+            subject: 'Aviso de cuenta creada',
         );
     }
 
