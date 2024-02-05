@@ -43,7 +43,7 @@
                       @endforeach
                     @else
                       <tr>
-                        <td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td><td></td>
                       </tr>
                     @endif
                     </tbody>

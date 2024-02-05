@@ -24,6 +24,17 @@ class PerfileSeeder extends Seeder
         $perfil1->user_id = '1';
         $perfil1->save();
 
+
+        $perfil1 = new Perfile();
+        $perfil1->nombre = 'Héctor';
+        $perfil1->apaterno = 'Hernández';
+        $perfil1->amaterno = 'Escobar';
+        $perfil1->celular = '7442053584';
+        $perfil1->sexo = 'M';
+        $perfil1->role_id = '1';
+        $perfil1->user_id = '2';
+        $perfil1->save();
+        /*
         $perfil2 = new Perfile();
         $perfil2->nombre = 'User2';
         $perfil2->apaterno = 'Prueba2';
@@ -53,5 +64,6 @@ class PerfileSeeder extends Seeder
         $perfil3->role_id = '3';
         $perfil3->user_id = '4';
         $perfil3->save();
+        */
     }
 }

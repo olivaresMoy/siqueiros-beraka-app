@@ -48,8 +48,12 @@
                         <td>{{ $usuario->Perfile->Role->name }}</td>
                         <td>
                           <a href="#" data-bs-toggle="modal" data-bs-target="#modalUsuarioVer" class="modal-open"  id="openModalVer-{{$usuario->id}}" data-item-nombre-{{ $usuario->id }}="{{ $usuario->id }}"><i class="bx bxs-show"></i></a>
+                          @if($usuario->id != 1)
                           <a href="#" data-bs-toggle="modal" data-bs-target="#modalUsuarioUpdate" class="modal-open"  id="openModalUpdate-{{$usuario->id}}" data-item-nombreNivelUpdate-{{ $usuario->id }}="{{ $usuario->id }}" data-item-institutoIdUpdate-{{ $usuario->id }}="{{ $usuario->Perfile->id }}"><i class="bx bxs-edit"></i></a>
+                          @endif
+                          @if($usuario->id != 1 and $usuario->id != 2)
                           <a href="#" data-bs-toggle="modal" data-bs-target="#modalAlertDelete" class="modal-open" id="openModalDel-{{$usuario->id}}" data-item-id-{{ $usuario->id }}="{{ $usuario->id }}"><i class="bx bxs-trash text-danger"></i></a>
+                          @endif
                         </td>
                       </tr>
                       @endforeach
