@@ -811,3 +811,108 @@
     </div>
   </div>
 </div>
+
+<!-- ===============MODALES NOTIFICACIONES=============== -->
+<!-- Modal para crear notificación -->
+<div class="modal fade modal-lg" tabindex="-1" id="modalNotificacionCreate">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Crear nueva notificación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+      <form action="{{ route('notificacion-save') }}" method="POST">
+        @csrf
+
+        <div class="form-floating mb-3">
+            <select class="form-select" id="idRole" name="role_id">
+              <option selected value="">Selecciona un elemento</option>
+
+              @if(isset($roles))
+                @if($roles != "[]" and $roles != NULL )
+                  @foreach($roles as $role)
+                    @if($role->name != NULL and $role->name != 'Admin')
+                      <option value="{{ $role->id }}" {{ selectOld('role_id', $role->id, 'select') }}><b>{{ $role->name }}</b></option>
+                    @endif
+                    @endforeach
+                @else
+                    <option value="">Sin registros</option>
+                @endif
+              @endif
+            </select>
+            <label for="idRole" class="form-label">Para:</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="tituloCreate" name="titulo" value="{{ old('titulo') }}" placeholder="Título">
+            <label for="tituloCreate" class="form-label">Título</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <textarea class="form-control" id="describeNotificacion" rows="3" name="descripcion">{{ old('descripcion') }}</textarea>
+          <label for="describeNotificacion" class="form-label">Notificación</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Modal para actualizar notificación -->
+<div class="modal fade modal-lg" tabindex="-1" id="modalNotificacionUpdate">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="GrupoUpdate">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="{{ route('notificacion-update') }}" method="POST">
+          @csrf
+          @method('patch')
+
+          <input type="hidden" id="idNotificacionUpdate" name="idNotificacionUpdate" value="">
+          <div class="form-floating mb-3">
+              <select class="form-select" id="idRoleUpdate" name="role_id">
+                <option selected value="">Selecciona un elemento</option>
+
+                @if(isset($roles))
+                  @if($roles != "[]" and $roles != NULL )
+                    @foreach($roles as $role)
+                      @if($role->name != NULL and $role->name != 'Admin')
+                        <option value="{{ $role->id }}" {{ selectOld('role_id', $role->id, 'select') }}><b>{{ $role->name }}</b></option>
+                      @endif
+                      @endforeach
+                  @else
+                      <option value="">Sin registros</option>
+                  @endif
+                @endif
+              </select>
+              <label for="idRoleUpdate" class="form-label">Para:</label>
+          </div>
+
+          <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="tituloUpdate" name="titulo" value="{{ old('titulo') }}" placeholder="Título">
+              <label for="tituloUpdate" class="form-label">Título</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <textarea class="form-control" id="descripcionUpdate" rows="3" name="descripcion">{{ old('descripcion') }}</textarea>
+            <label for="descripcionUpdate" class="form-label">Notificación</label>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

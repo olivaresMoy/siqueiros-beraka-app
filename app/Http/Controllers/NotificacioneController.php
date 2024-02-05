@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Notificacione;
+use App\Http\Requests\SaveNotificacionRequest;
 
 class NotificacioneController extends Controller
 {
@@ -21,9 +22,16 @@ class NotificacioneController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SaveNotificacionRequest $request)
     {
         //
+        $varsNotificacion = array(
+            'titulo' => $request->input("titulo"),
+            'descripcion' => $request->input("descripcion"),
+            'role_id' => $request->input("role_id"),
+        );
+        Notificacione::create($varsNotificacion);
+        return redirect()->route('notificaciones');
     }
 
     /**
@@ -37,9 +45,18 @@ class NotificacioneController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(SaveNotificacionRequest $request)
     {
         //
+        $notificacion = Notificacione::findOrFail($request->input('idNotificacionUpdate'));
+
+        $varsNotificacion = array(
+            'titulo' => $request->input("titulo"),
+            'descripcion' => $request->input("descripcion"),
+            'role_id' => $request->input("role_id"),
+        );
+        $notificacion->update($varsNotificacion);
+        return redirect()->route('notificaciones');
     }
 
     /**
@@ -48,5 +65,9 @@ class NotificacioneController extends Controller
     public function destroy(string $id)
     {
         //
+        $notificacion = Notificacione::findOrFail($id);
+        $notificacion->delete();
+
+        return redirect()->route('notificaciones');
     }
 }

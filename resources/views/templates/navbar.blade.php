@@ -35,11 +35,11 @@
         </li>
         <li><a href="#collapseItems2" class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseItems2" role="button" aria-expanded="false" aria-controls="collapseItems"><i class="bx bx-carousel"></i> <span>Data App</span></a>
             <ul class="collapse" id="collapseItems2">
+                <li class="ms-4"><a href="{{ route('notificaciones') }}" class="nav-link"><i class="bx bx-message"></i> <span>Notificaciones</span></a></li>
                 <li class="ms-4"><a href="{{ route('asistencias') }}" class="nav-link"><i class="bx bx-user"></i> <span>Asistencias</span></a></li>
                 <li class="ms-4"><a href="{{ route('calificaciones') }}" class="nav-link"><i class="bx bx-file-blank"></i> <span>Calificaciones</span></a></li>
                 <li class="ms-4"><a href="{{ route('reportes') }}" class="nav-link"><i class="bx bx-book-content"></i> <span>Reportes</span></a></li>
                 <li class="ms-4"><a href="{{ route('tareas') }}" class="nav-link"><i class="bx bx-server"></i> <span>Tareas</span></a></li>
-                <li class="ms-4"><a href="{{ route('notificaciones') }}" class="nav-link"><i class="bx bx-message"></i> <span>Notificaciones</span></a></li>
             </ul>
         </li>
         <li><a href="#" onClick="javascript: document.logout.submit();" class="nav-link scrollto"><i class="bx bx-power-off"></i> <span>Salir</span></a></li>

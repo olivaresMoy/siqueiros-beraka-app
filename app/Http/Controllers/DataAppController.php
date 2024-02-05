@@ -8,16 +8,19 @@ use App\Models\Tarea;
 use App\Models\Calificacione;
 use App\Models\Asistencia;
 use App\Models\Reporte;
+use App\Models\Role;
 
 class DataAppController extends Controller
 {
     //
     function indexNotificaciones(Request $request){
         $notificaciones = Notificacione::all();
+        $roles = Role::all();
         
         return view('resources/notificaciones',[
             'notificaciones' => $notificaciones,
             'request' => $request,
+            'roles' => $roles,
         ]);
     }
     function indexTareas(Request $request){

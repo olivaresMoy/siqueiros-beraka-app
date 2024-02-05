@@ -7,6 +7,7 @@ use App\Http\Controllers\NiveleController;
 use App\Http\Controllers\GrupoController;
 use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\NotificacioneController;
 use App\Http\Controllers\DataAppController;
 
 /*
@@ -47,6 +48,10 @@ Route::get('usuarios/cuentas',[UserController::class,'index'])->name('cuentas')-
 Route::post('usuario-save',[UserController::class,'store'])->name('usuario-save')->middleware('auth');
 Route::patch('usuario-update',[UserController::class,'update'])->name('usuario-update')->middleware('auth');
 Route::get('usuario-delete/{id}',[UserController::class,'destroy'])->name('usuario-delete')->middleware('auth');
+/* Rutas para gestionar las notificaciones */
+Route::post('notificacion-save',[NotificacioneController::class,'store'])->name('notificacion-save')->middleware('auth');
+Route::patch('notificacion-update',[NotificacioneController::class,'update'])->name('notificacion-update')->middleware('auth');
+Route::get('notificacion-delete/{id}',[NotificacioneController::class,'destroy'])->name('notificacion-delete')->middleware('auth');
 /* Rutas para listar la Data App */
 Route::get('resources/notificaciones',[DataAppController::class,'indexNotificaciones'])->name('notificaciones')->middleware('auth');
 Route::get('resources/tareas',[DataAppController::class,'indexTareas'])->name('tareas')->middleware('auth');
