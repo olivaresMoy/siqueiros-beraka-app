@@ -534,6 +534,26 @@
           <div class="row">
             <div class="col">
               <div class="form-floating mb-3">
+                <select class="form-select" name="institucione_id">
+                  <option selected value="">Selecciona un elemento</option>
+
+                  @if(isset($instituciones))
+                    @if($roles != "[]")
+                      @foreach($instituciones as $instituto)
+                        <option value="{{ $instituto->id }}" {{selectOld('institucione_id', $instituto->id, 'select')}}>{{ $instituto->nombre }}</option>
+                      @endforeach
+                    @else
+                        <option value="">Sin registros</option>
+                    @endif
+                  @endif
+                </select>
+                <label for="idRoleCreate" class="form-label">Institución</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-floating mb-3">
                   <input type="text" class="form-control" id="usuarioCreate" name="name" value="{{ old('name') }}"" placeholder="Usuario">
                   <label for="usuarioCreate" class="form-label">Nombre de usuario</label>
               </div>
@@ -546,7 +566,7 @@
                   @if(isset($roles))
                     @if($roles != "[]")
                       @foreach($roles as $rol)
-                        <option value="{{ $rol->id }}" selectOld('role_id', {{ $rol->id }}, 'select')>{{ $rol->name }}</option>
+                        <option value="{{ $rol->id }}">{{ $rol->name }}</option>
                       @endforeach
                     @else
                         <option value="">Sin registros</option>
@@ -570,7 +590,7 @@
                   @if(isset($tutores))
                     @if($tutores != "[]")
                       @foreach($tutores as $tutor)
-                        <option value="{{ $tutor->id }}" selectOld('tutor_id', {{ $tutor->id }}, 'select')>{{ $tutor->User->Perfile->nombre }} {{ $tutor->User->Perfile->apaterno }} {{ $tutor->User->Perfile->amaterno }}</option>
+                        <option value="{{ $tutor->id }}" {{selectOld('tutor_id', $tutor->id, 'select')}}>{{ $tutor->User->Perfile->nombre }} {{ $tutor->User->Perfile->apaterno }} {{ $tutor->User->Perfile->amaterno }}</option>
                       @endforeach
                     @else
                         <option value="">Sin registros</option>
@@ -593,7 +613,7 @@
                   @if(isset($grupos))
                     @if($grupos != "[]")
                       @foreach($grupos as $grupo)
-                        <option value="{{ $grupo->id }}" selectOld('grupo_id', {{ $grupo->id }}, 'select')>{{ $grupo->grado }} {{ $grupo->grupo }} - {{ $grupo->nivele->nombre }}  - {{ $grupo->nivele->Institucione->nombre }}</option>
+                        <option value="{{ $grupo->id }}" {{selectOld('grupo_id', $grupo->id, 'select')}}>{{ $grupo->grado }} {{ $grupo->grupo }} - {{ $grupo->nivele->nombre }}  - {{ $grupo->nivele->Institucione->nombre }}</option>
                       @endforeach
                     @else
                         <option value="">Sin registros</option>
@@ -640,8 +660,8 @@
               <div class="form-floating mb-3">
                 <select class="form-select" id="generoCreate" name="sexo">
                   <option selected value="">Selecciona un elemento</option>
-                  <option value="M">Masculino</option>
-                  <option value="F">Femenino</option>
+                  <option value="M" {{selectOld('sexo', 'M', 'select')}}>Masculino</option>
+                  <option value="F" {{selectOld('sexo', 'F', 'select')}}>Femenino</option>
                 </select>
                 <label for="generoCreate" class="form-label">Género</label>
               </div>
@@ -695,6 +715,26 @@
         @method('patch')
         <input type="hidden" id="idUserUpt" name="idUserUpt" value="">
         <div class="container text-center" id="containerTutoreGrupoUpt">
+          <div class="row">
+            <div class="col">
+              <div class="form-floating mb-3">
+                <select class="form-select" name="institucione_id" id="institucione_idUpdate">
+                  <option selected value="">Selecciona un elemento</option>
+
+                  @if(isset($instituciones))
+                    @if($roles != "[]")
+                      @foreach($instituciones as $instituto)
+                        <option value="{{ $instituto->id }}" {{selectOld('institucione_id', $instituto->id, 'select')}}>{{ $instituto->nombre }}</option>
+                      @endforeach
+                    @else
+                        <option value="">Sin registros</option>
+                    @endif
+                  @endif
+                </select>
+                <label for="institucione_idUpdate" class="form-label">Institución</label>
+              </div>
+            </div>
+          </div>
           <div class="row">
             <div class="col">
               <div class="form-floating mb-3">

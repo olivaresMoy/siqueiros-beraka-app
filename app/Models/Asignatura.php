@@ -12,13 +12,23 @@ class Asignatura extends Model
 
     use HasFactory;
 
+    public function grupos() {
+        return $this->belongsToMany('App\Models\Grupo');
+    }
     public function docente(){
         return $this->belongsTo('App\Models\Docente');
+    }
+    public function asistencias(){
+        return $this->hasMany('App\Models\Asistencia');
+    }
+    public function calificaciones(){
+        return $this->hasMany('App\Models\Calificacione');
+    }
+    public function reportes(){
+        return $this->hasMany('App\Models\Reporte');
     }
     public function tareas(){
         return $this->hasMany('App\Models\Tarea');
     }
-    public function grupos() {
-    	return $this->belongsToMany('App\Models\Grupo');
-    }
+
 }

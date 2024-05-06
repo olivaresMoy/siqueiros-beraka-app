@@ -35,6 +35,7 @@
                         <th scope="col">Nombre completo</th>
                         <th scope="col">Usuario</th>
                         <th scope="col">Rol</th>
+                        <th scope="col">Institución</th>
                         <th scope="col"><i class="bx bxs-cog"></i> Acciones</th>
                       </tr>
                     </thead>
@@ -46,6 +47,27 @@
                         <td>{{ $usuario->Perfile->nombre }} {{ $usuario->Perfile->apaterno }} {{ $usuario->Perfile->amaterno }}</td>
                         <td>{{ $usuario->name }}</td>
                         <td>{{ $usuario->Perfile->Role->name }}</td>
+                        <td>
+                          @switch($usuario->Perfile->Role->name)
+                            @case('Alumno')
+                              {{ $usuario->Institucione->nombre }} - {{ $usuario->Alumno->Grupo->Nivele->nombre }}
+                              @break
+                            @case('Tutor')
+                              @if(isset($usuario->Tutore->Alumnos))
+                                @if($usuario->Tutore->Alumnos != "[]")
+                                  @foreach($usuario->Tutore->Alumnos as $alumn)
+                                    <b>{{ $alumn->User->Perfile->nombre }} {{ $alumn->User->Perfile->apaterno }} {{ $alumn->User->Perfile->amaterno }}</b><br>{{ $alumn->User->Institucione->nombre }} - {{ $alumn->Grupo->Nivele->nombre }}<br>
+                                  @endforeach
+                                @endif
+                              @endif
+                              @break
+                            @case('Docente')
+                              {{ $usuario->Institucione->nombre }} - {{ $usuario->Docente->Grupo->Nivele->nombre }}
+                              @break
+                            @default
+                              No aplica
+                          @endswitch
+                        </td>
                         <td>
                           <a href="#" data-bs-toggle="modal" data-bs-target="#modalUsuarioVer" class="modal-open"  id="openModalVer-{{$usuario->id}}" data-item-nombre-{{ $usuario->id }}="{{ $usuario->id }}"><i class="bx bxs-show"></i></a>
                           @if($usuario->id != 1)
@@ -116,6 +138,7 @@
         $("#containerCamposDinamicosUpt").hide();
         */
         $("#idUserUpt").val("{{ $usuario->id }}");
+        $("#institucione_idUpdate").val("{{ $usuario->Institucione->id }}");
         $("#idRoleUpt").val("{{ $usuario->Perfile->Role->id }}");
         $("#roleUpt").val("{{ $usuario->Perfile->Role->name }}");
         $("#roleUpt").attr('readonly', true);

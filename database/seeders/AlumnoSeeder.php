@@ -15,7 +15,7 @@ class AlumnoSeeder extends Seeder
     {
         // Alumnos
         $alumno1 = new Alumno();
-        $alumno1->user_id = '3';
+        $alumno1->user_id = '4';
         $alumno1->grupo_id = '1';
         $alumno1->tutore_id = '1';
         $alumno1->save();

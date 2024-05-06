@@ -22,6 +22,7 @@ class SaveUserRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'institucione_id' => 'required',
             'name' => 'required',
             'role_id' => 'required',
             'tutore_id' => 'exclude_unless:role_id,2|required',

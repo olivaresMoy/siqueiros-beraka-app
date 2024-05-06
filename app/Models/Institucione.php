@@ -11,6 +11,9 @@ class Institucione extends Model
 
     protected $fillable = ['nombre','cct','zona','telefono','direccion','director','ciclo'];
 
+    public function users(){
+        return $this->hasMany('App\Models\User');
+    }
     public function niveles(){
         return $this->hasMany('App\Models\Nivele');
     }

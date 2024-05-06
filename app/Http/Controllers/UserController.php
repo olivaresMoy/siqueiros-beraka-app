@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Http\Requests\SaveUserRequest;
+use App\Models\Institucione;
 use App\Models\User;
 use App\Models\Perfile;
 use App\Models\Docente;
@@ -23,6 +24,7 @@ class UserController extends Controller
     public function index()
     {
         // Listado
+        $instituciones = Institucione::all();
         $users = User::all();
         $alumnos = Alumno::all();
         $docentes = Docente::all();
@@ -31,6 +33,7 @@ class UserController extends Controller
         $grupos = Grupo::all();
 
         return view('usuarios/cuentas',[
+            'instituciones' => $instituciones,
             'usuarios' => $users,
             'alumnos' => $alumnos,
             'docentes' => $docentes,
@@ -55,6 +58,7 @@ class UserController extends Controller
     {
         //
         $varsUser = array(
+            'institucione_id' => $request->input("institucione_id"),
             'name' => $request->input("name"),
             'email' => $request->input("email"),
             'email_verified_at' => now(),

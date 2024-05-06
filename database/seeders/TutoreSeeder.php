@@ -15,7 +15,7 @@ class TutoreSeeder extends Seeder
     {
         // Tutores
         $tutor1 = new Tutore();
-        $tutor1->user_id = '2';
+        $tutor1->user_id = '3';
         $tutor1->save();
     }
 }
