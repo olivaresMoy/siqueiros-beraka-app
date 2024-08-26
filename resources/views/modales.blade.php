@@ -538,12 +538,14 @@
                   <option selected value="">Selecciona un elemento</option>
 
                   @if(isset($instituciones))
-                    @if($roles != "[]")
-                      @foreach($instituciones as $instituto)
-                        <option value="{{ $instituto->id }}" {{selectOld('institucione_id', $instituto->id, 'select')}}>{{ $instituto->nombre }}</option>
-                      @endforeach
-                    @else
-                        <option value="">Sin registros</option>
+                    @if(isset($roles))
+                      @if($roles != "[]")
+                        @foreach($instituciones as $instituto)
+                          <option value="{{ $instituto->id }}" {{selectOld('institucione_id', $instituto->id, 'select')}}>{{ $instituto->nombre }}</option>
+                        @endforeach
+                      @else
+                          <option value="">Sin registros</option>
+                      @endif
                     @endif
                   @endif
                 </select>
@@ -722,12 +724,14 @@
                   <option selected value="">Selecciona un elemento</option>
 
                   @if(isset($instituciones))
-                    @if($roles != "[]")
-                      @foreach($instituciones as $instituto)
-                        <option value="{{ $instituto->id }}" {{selectOld('institucione_id', $instituto->id, 'select')}}>{{ $instituto->nombre }}</option>
-                      @endforeach
-                    @else
-                        <option value="">Sin registros</option>
+                    @if(isset($roles))
+                      @if($roles != "[]")
+                        @foreach($instituciones as $instituto)
+                          <option value="{{ $instituto->id }}" {{selectOld('institucione_id', $instituto->id, 'select')}}>{{ $instituto->nombre }}</option>
+                        @endforeach
+                      @else
+                          <option value="">Sin registros</option>
+                      @endif
                     @endif
                   @endif
                 </select>

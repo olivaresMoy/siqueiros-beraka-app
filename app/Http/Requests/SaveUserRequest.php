@@ -30,7 +30,7 @@ class SaveUserRequest extends FormRequest
             'nombre' => 'required',
             'apaterno' => 'required',
             'amaterno' => 'required',
-            'email' => 'required',
+            'email' => 'required|email|unique:users',
             'celular' => 'required',
             'sexo' => 'required',
         ];
